@@ -1,0 +1,15 @@
+[project]
+name = "remote-sensing-waterway-segmentation"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "earthpy>=0.9.4",
+    "geopandas>=1.1.1",
+    "matplotlib>=3.10.6",
+    "notebook>=7.4.5",
+    "numpy>=2.2.6",
+    "rasterio>=1.4.3",
+    "sentinelhub>=3.11.1",
+]

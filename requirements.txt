@@ -1,0 +1,7 @@
+notebook
+rasterio 
+matplotlib 
+geopandas 
+numpy 
+earthpy 
+sentinelhub
