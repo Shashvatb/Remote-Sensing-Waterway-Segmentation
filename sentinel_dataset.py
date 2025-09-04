@@ -7,7 +7,7 @@ import random
 from torchvision import transforms
 
 class SentinelWaterDataset(Dataset):
-    def __init__(self, root_dir, tile_size=256):
+    def __init__(self, root_dir, tile_size=256, mode='train'):
         """
         init function for our dataset class
         we load the scenes, scale and clip the bands, calculate the (pseudo) label, crop the scene into managable tiles and oversample under represented class (water)
@@ -19,6 +19,10 @@ class SentinelWaterDataset(Dataset):
 
         # Load all folder names
         self.scenes = os.listdir(self.root_dir)
+        if mode == 'train':
+            self.scenes = self.scenes[:-1]
+        else:
+            self.scenes = self.scenes[-1]
 
         # Preprocess all scenes by extracting bands and computing NDWI
         self.tiles = []
