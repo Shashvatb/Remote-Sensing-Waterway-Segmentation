@@ -28,7 +28,7 @@ class SentinelWaterDataset(Dataset):
         self.tiles = []
         self.masks = []
         for scene in self.scenes:
-            band_paths = self.get_band_paths(scene)
+            band_paths = self.get_band_paths(os.path.join(self.root_dir,scene))
             img, ndwi = self.load_and_preprocess(band_paths)
             # Convert to smaller tiles
             scene_tiles, scene_masks = self.tile_image(img, ndwi)
