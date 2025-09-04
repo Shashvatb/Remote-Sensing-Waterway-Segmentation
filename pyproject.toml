@@ -12,4 +12,6 @@ dependencies = [
     "numpy>=2.2.6",
     "rasterio>=1.4.3",
     "sentinelhub>=3.11.1",
+    "torch>=2.8.0",
+    "torchvision>=0.23.0",
 ]

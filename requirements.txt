@@ -1,7 +1,6 @@
 notebook
 rasterio 
-matplotlib 
-geopandas 
+matplotlib  
 numpy 
-earthpy 
-sentinelhub
+torch
+torchvision
