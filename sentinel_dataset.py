@@ -22,7 +22,7 @@ class SentinelWaterDataset(Dataset):
         if mode == 'train':
             self.scenes = self.scenes[:-1]
         else:
-            self.scenes = self.scenes[-1]
+            self.scenes = self.scenes[-1:]
 
         # Preprocess all scenes by extracting bands and computing NDWI
         self.tiles = []
@@ -119,16 +119,16 @@ class SentinelWaterDataset(Dataset):
             if mask.sum() > 0:
                 # Horizontal flip
                 if random.random() > 0.25:
-                    balanced_tiles.append(np.flip(tile, axis=2))
-                    balanced_masks.append(np.flip(mask, axis=1))
+                    balanced_tiles.append(np.flip(tile, axis=2).copy())
+                    balanced_masks.append(np.flip(mask, axis=1).copy())
                 # Vertical flip
                 if random.random() > 0.25:
-                    balanced_tiles.append(np.flip(tile, axis=1))
-                    balanced_masks.append(np.flip(mask, axis=0))
+                    balanced_tiles.append(np.flip(tile, axis=1).copy())
+                    balanced_masks.append(np.flip(mask, axis=0).copy())
                 # 90-degree rotation
                 if random.random() > 0.25:
-                    balanced_tiles.append(np.rot90(tile, k=1, axes=(1,2)))
-                    balanced_masks.append(np.rot90(mask, k=1))
+                    balanced_tiles.append(np.rot90(tile, k=1, axes=(1,2)).copy())
+                    balanced_masks.append(np.rot90(mask, k=1).copy())
 
         self.tiles = balanced_tiles
         self.masks = balanced_masks
