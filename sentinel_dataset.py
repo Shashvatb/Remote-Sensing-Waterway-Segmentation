@@ -20,7 +20,7 @@ class SentinelWaterDataset(Dataset):
         # Load all folder names
         self.scenes = os.listdir(self.root_dir)
         if mode == 'train':
-            self.scenes = self.scenes[:-1]
+            self.scenes = self.scenes[:2]
         else:
             self.scenes = self.scenes[-1:]
 
